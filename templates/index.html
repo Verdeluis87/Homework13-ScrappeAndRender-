@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MARS SCRAPE</title>
+  <!-- Boostrap Stylesheet -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <!-- Our own CSS stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  <style>
+  .title {
+    /* Typography */
+    font-family: Arial;
+    font-weight: bolder;
+  }
+
+.img_size_lg {
+  /* Positioning */
+  float: left;
+
+  /* Box-model */
+  width: 750px;
+  height: 600px;
+  padding: 0.5cm
+} 
+.center{
+  position: relative;
+  left: 450px;
+}
+  </style>
+
+
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1 style="text-align: center" class="title">Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg center"  href="/scrape" role="button">Scrape Data</a></p>
+    </div>
+
+    <!-- Craigslist Listings -->
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="title">Lattest Mars NEWS</h1>
+        <h2 class="heading">{{listings.news_title}}</h2>
+        <p>{{listings.news_p}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <img src={{listings.featured_image}} alt="" class="img_size_lg image-responsive">
+      </div>
+      <div class="col-md-4">
+          <div class="card cards" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Current Weather on Mars</h5>
+                <p class="card-text">{{listings.mars_weather}}</p>
+              </div>
+            </div>
+            <div>
+              <h3>Mars Facts</h3>
+              <hr>
+            {{listings.df | safe}}
+          </div>
+        </div>
+      </div>
+
+
+    <div class= "row">
+      <div class="col-md-12">
+        <h1 style="text-align: center;">Mars Hemispheres</h1>
+        <hr>
+      </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{listings.hemispheres[0].img_url}}" class="card-img-top" alt="" height="450" width="450">
+                    <div class="card-body">
+                      <h3 class="card-title">{{listings.hemispheres[0].title}}</h3>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{listings.hemispheres[1].img_url}}" class="card-img-top" alt="" height="450" width="450">
+                    <div class="card-body">
+                      <h3 class="card-title">{{listings.hemispheres[1].title}}</h3>
+                    </div>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{listings.hemispheres[2].img_url}}" class="card-img-top" alt="" height="450" width="450">
+                    <div class="card-body">
+                      <h3 class="card-title">{{listings.hemispheres[2].title}}</h3>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{listings.hemispheres[3].img_url}}" class="card-img-top" alt="" height="450" width="450">
+                    <div class="card-body">
+                      <h3 class="card-title">{{listings.hemispheres[3].title}}</h3>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  </div>
+</body>
+
+</html>
